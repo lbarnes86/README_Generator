@@ -55,6 +55,12 @@ inquirer
       
   console.log(response) 
 
+  let template = `## Documentation`
 
-  }
- );
+  fs.writeFile("README.md", template, (error) => {
+
+    console.log(error);
+
+  })
+
+  });
