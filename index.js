@@ -1,8 +1,7 @@
-const inquirer = require('inquirer');
+const inquirer = require('./Develop/node_modules/inquirer');
+//const generatorMarkdown = require('./Develop/utils/generateMarkdown');
 const fs = require('fs');
-const utils = require('utils');
 
-const writeFileAsync = utils.promisify(fs.writeFile);
 
 // creates question 
 inquirer
@@ -20,7 +19,7 @@ inquirer
     {
       type: 'input',
       message: 'What are the installation instructions for your project?',
-      name: 'instructions',
+      name: 'installation',
     },
     {
       type: 'input',
@@ -30,7 +29,7 @@ inquirer
     {
       type: 'input',
       message: 'Who are the contributors on this project?',
-      name: 'contribution',
+      name: 'contributing',
     },
     {
       type: 'input',
@@ -55,37 +54,51 @@ inquirer
     },
   ])
   
-   function generateMarkdown(response) {
-       return `
+   .then((response) =>{
+       console.log(response)
 
-# ${response.title}
+    let template = 
+
+   `## ${response.title}
     
-# Table of Contents
+## Table of Contents
   
  - [Description](#description)
- - [Instructions](#instructions)
+ - [Installation](#installation)
  - [Usage](#usage)
- - [Contribution](#contribution)
- - [Test](#test)
  - [License](#license)
- - []()
- - []()
+ - [Contributing](#contributing)
+ - [Test](#test)
+ - [Questions](#questions)
 
- ## Description:
- ![License](https://img.shileds.io/badge/license-${response.license}-blue.svg "License Badge")
+ ## Description
+ ![License](https://img.shields.io/badge/license-${response.license}-blue.svg "License Badge")
   
-  
-  
-  # ${response.title}
-  # ${response.description}
-  # ${response.instructions}
-  # ${response.usage}
-  # ${response.contribution}
-  # ${response.license}
-  # ${response.username}
-  # ${response.email}
-  `
-    return fs.writeFile("README.md", template); 
+   * ${response.description}
+ ## Installation
+   * ${response.installation}
+## Usage
+   * ${response.usage}
+## License
+   * For more information about the license click the link below.
 
-  }).then({error} => {
-      console.log(error)});
+ *[License](https://opensource.org/licenses/${response.license})   
+
+## Contributing
+   * ${response.contributing}
+## Tests
+   * ${response.test}
+## Questions
+    For more questions about this app you can 
+    visit my GitHub page at the following link:
+
+- [GitHub Profile](https://github.com/${response.username})
+
+For more information please contact by email at: ${response.email}.
+`
+   fs.writeFile("README.md", template, (error) =>{
+       console.log(error);
+   })
+
+}
+   );
