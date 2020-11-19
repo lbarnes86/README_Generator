@@ -1,23 +1,50 @@
-const generateMarkdown = require("./utils/generateMarkdown");
+const inquirer = require('inquirer');
 
-// array of questions for user
-const questions = [
-
-];
-let dataObj = {title:"this test"};
-
-dataObj.test = "another one"
-
-console.log(generateMarkdown(dataObj));
-
-// function to write README file
-function writeToFile(fileName, data) {
-}
-
-// function to initialize program
-function init() {
-
-}
-
-// function call to initialize program
-init();
+inquirer
+  .prompt([
+    {
+      type: 'input',
+      message: 'What is the project title?',
+      name: 'title',
+    },
+    {
+      type: 'input',
+      message: 'What is the description?',
+      name: 'description',
+    },
+    {
+      type: 'input',
+      message: 'What are the installation instructions?',
+      name: 'instructions',
+    },
+    {
+      type: 'input',
+      message: 'What is the usage information?',
+      name: 'usage',
+    },
+    {
+      type: 'input',
+      message: 'What is the project title?',
+      name: 'title',
+    },
+    {
+      type: 'input',
+      message: 'What is the project title?',
+      name: 'title',
+    },
+    {
+      type: 'password',
+      message: 'What is your password?',
+      name: 'password',
+    },
+    {
+      type: 'password',
+      message: 'Re-enter password to confirm:',
+      name: 'confirm',
+    },
+  ])
+  .then((response) =>
+    response.confirm === response.password
+      ? console.log('Success!')
+      : console.log('You forgot your password already?!')
+  );
