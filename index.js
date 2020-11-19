@@ -1,4 +1,6 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
+
 
 inquirer
   .prompt([
@@ -24,27 +26,37 @@ inquirer
     },
     {
       type: 'input',
-      message: 'What is the project title?',
-      name: 'title',
+      message: 'What are the contribution guidelines?',
+      name: 'contribution',
     },
     {
       type: 'input',
-      message: 'What is the project title?',
-      name: 'title',
+      message: 'What are the test instructions?',
+      name: 'test',
     },
     {
-      type: 'password',
-      message: 'What is your password?',
-      name: 'password',
+      type: 'list',
+      message: 'Please choose a license',
+      choices: ['Please choose a license'],
+      name: 'license',
     },
     {
-      type: 'password',
-      message: 'Re-enter password to confirm:',
-      name: 'confirm',
+      type: 'input',
+      message: 'What is your GitHub username?',
+      name: 'username',
+    },
+    {
+      type: 'input',
+      message: 'What is your email address?',
+      name: 'email',
     },
   ])
-  .then((response) =>
+  .then((response) => {
+      
+  console.log(response.username) 
+
     response.confirm === response.password
       ? console.log('Success!')
       : console.log('You forgot your password already?!')
-  );
+  }
+ );
