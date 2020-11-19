@@ -1,5 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const utils = require('utils');
+
+const writeFileAsync = utils.promisify(fs.writeFile);
 
 // creates question 
 inquirer
@@ -51,16 +54,38 @@ inquirer
       name: 'email',
     },
   ])
-  .then((response) => {
-      
-  console.log(response) 
+  
+   function generateMarkdown(response) {
+       return `
 
-  let template = `## Documentation`
+# ${response.title}
+    
+# Table of Contents
+  
+ - [Description](description)
+ - []()
+ - []()
+ - []()
+ - []()
+ - []()
+ - []()
+ - []()
 
-  fs.writeFile("README.md", template, (error) => {
+ ## Description:
+ ![License](https://img.shileds.io/badge/license-${response.license}-blue.svg "License Badge")
+  
+  
+  
+  # ${response.title}
+  # ${response.description}
+  # ${response.instructions}
+  # ${response.usage}
+  # ${response.contribution}
+  # ${response.license}
+  # ${response.username}
+  # ${response.email}
+  `
+    return fs.writeFile("README.md", template); 
 
-    console.log(error);
-
-  })
-
-  });
+  }).then({error} => {
+      console.log(error)});
