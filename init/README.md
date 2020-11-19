@@ -1,4 +1,4 @@
-## README app
+## README Generator application
     
 ## Table of Contents
   
@@ -13,11 +13,11 @@
  ## Description
  ![License](https://img.shields.io/badge/license-MIT-blue.svg "License Badge")
   
-   * This app is used to quickly and easily update your README.md file
+   * This app can be used to quickly update your README.md
  ## Installation
    * Please install package.json and inquirer
 ## Usage
-   * It can be used to update your README.md quickly 
+   * The README Generator can be used to easily and quickly create a README.md file
 ## License
    * For more information about the license click the link below.
 
