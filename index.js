@@ -62,12 +62,12 @@ inquirer
     
 # Table of Contents
   
- - [Description](description)
- - []()
- - []()
- - []()
- - []()
- - []()
+ - [Description](#description)
+ - [Instructions](#instructions)
+ - [Usage](#usage)
+ - [Contribution](#contribution)
+ - [Test](#test)
+ - [License](#license)
  - []()
  - []()
 
