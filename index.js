@@ -1,32 +1,32 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-
+// creates question 
 inquirer
   .prompt([
     {
       type: 'input',
-      message: 'What is the project title?',
+      message: 'What is the name of your project?',
       name: 'title',
     },
     {
       type: 'input',
-      message: 'What is the description?',
+      message: 'Enter a description of your project',
       name: 'description',
     },
     {
       type: 'input',
-      message: 'What are the installation instructions?',
+      message: 'What are the installation instructions for your project?',
       name: 'instructions',
     },
     {
       type: 'input',
-      message: 'What is the usage information?',
+      message: 'How can your app be used?',
       name: 'usage',
     },
     {
       type: 'input',
-      message: 'What are the contribution guidelines?',
+      message: 'Who are the contributors on this project?',
       name: 'contribution',
     },
     {
@@ -35,10 +35,10 @@ inquirer
       name: 'test',
     },
     {
-      type: 'list',
+      type: 'checkbox',
       message: 'Please choose a license',
-      choices: ['Please choose a license'],
-      name: 'license',
+      choices: ["MIT", "ISC", "Apache"],
+      name: "license",
     },
     {
       type: 'input',
@@ -53,10 +53,8 @@ inquirer
   ])
   .then((response) => {
       
-  console.log(response.username) 
+  console.log(response) 
 
-    response.confirm === response.password
-      ? console.log('Success!')
-      : console.log('You forgot your password already?!')
+
   }
  );
