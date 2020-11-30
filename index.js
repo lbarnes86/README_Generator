@@ -1,11 +1,11 @@
-const inquirer = require('./Develop/node_modules/inquirer');
-//const generatorMarkdown = require('./Develop/utils/generateMarkdown');
+const inquirer = require('inquirer');
+const generatorMarkdown = require('./utils/generateMarkdown');
 const fs = require('fs');
 
 
 // creates question 
-inquirer
-  .prompt([
+
+  const questions = [
     {
       type: 'input',
       message: 'What is the name of your project?',
@@ -52,53 +52,18 @@ inquirer
       message: 'What is your email address?',
       name: 'email',
     },
-  ])
-  
-   .then((response) =>{
-       console.log(response)
-
-    let template = 
-
-   `## ${response.title}
-    
-## Table of Contents
-  
- - [Description](#description)
- - [Installation](#installation)
- - [Usage](#usage)
- - [License](#license)
- - [Contributing](#contributing)
- - [Test](#test)
- - [Questions](#questions)
-
- ## Description
- ![License](https://img.shields.io/badge/license-${response.license}-blue.svg "License Badge")
-  
-   * ${response.description}
- ## Installation
-   * ${response.installation}
-## Usage
-   * ${response.usage}
-## License
-   * For more information about the license click the link below.
-
- *[License](https://opensource.org/licenses/${response.license})   
-
-## Contributing
-   * ${response.contributing}
-## Tests
-   * ${response.test}
-## Questions
-    For more questions about this app you can 
-    visit my GitHub page at the following link:
-
-- [GitHub Profile](https://github.com/${response.username})
-
-For more information please contact by email at: ${response.email}.
-`
-   fs.writeFile("README.md", template, (error) =>{
-       console.log(error);
-   })
-
-}
-   );
+  ];
+  //
+   function writeToFile(fileName, data){
+     return fs.writeFileSync((process.cwd(), fileName), data);
+   }
+//
+   function start(){
+     inquirer.prompt (questions)
+     .then((res) => {
+       console.log("Constructing README.md");
+       fs.writeFileSync("README.md", generatorMarkdown(res))
+     })
+     
+   } 
+   start();
