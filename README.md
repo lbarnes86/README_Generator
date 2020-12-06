@@ -1,7 +1,6 @@
-
-    # test 
+## README Generator application
     
-    ## Table of Contents
+## Table of Contents
   
  - [Description](#description)
  - [Installation](#installation)
@@ -12,41 +11,26 @@
  - [Questions](#questions)
 
  ## Description
-
- ![License](https://img.shields.io/badge/license--blue.svg "License Badge")
+ ![License](https://img.shields.io/badge/license-MIT-blue.svg "License Badge")
   
-   * test
-
+   * This app can be used to quickly update your README.md
  ## Installation
-
-   * test
-
+   * Please install package.json and inquirer
 ## Usage
-
-   * test
-
+   * The README Generator can be used to easily and quickly create a README.md file
 ## License
-
    * For more information about the license click the link below.
 
- *[License](https://opensource.org/licenses/)   
+ *[License](https://opensource.org/licenses/MIT)   
 
 ## Contributing
-
-   * test
-
+   * Lloyd Barnes
 ## Tests
-
-   * test
-
+   * none
 ## Questions
-
     For more questions about this app you can 
-
     visit my GitHub page at the following link:
 
-- [GitHub Profile](https://github.com/tesdt)
+- [GitHub Profile](https://github.com/lbarnes86)
 
-For more information please contact by email at: test@test.com.
- 
- 
+For more information please contact by email at: barnes.lloyd86@gmail.com.
